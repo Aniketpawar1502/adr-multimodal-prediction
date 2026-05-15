@@ -1,0 +1,47 @@
+# ============================================================
+# ADR Multi-Modal Prediction — Python Dependencies
+# Tested on: AWS EC2 g5.4xlarge, Ubuntu 22.04, CUDA 11.8
+# Python: 3.10+
+# ============================================================
+
+# ── Core Scientific Stack ──────────────────────────────────
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.11.0
+
+# ── Machine Learning ──────────────────────────────────────
+scikit-learn>=1.4.0
+
+# ── Deep Learning (install PyTorch separately — see README) ─
+# torch>=2.1.0   (install via https://pytorch.org — CUDA-specific wheel)
+
+# ── Graph Neural Networks ─────────────────────────────────
+# torch_geometric>=2.4.0  (install via https://data.pyg.org)
+# torch_scatter           (PyG dependency)
+# torch_sparse            (PyG dependency)
+
+# ── Cheminformatics ───────────────────────────────────────
+rdkit>=2023.09.1
+
+# ── Biomedical NLP ────────────────────────────────────────
+transformers>=4.37.0
+tokenizers>=0.15.0
+
+# ── PubChem API ───────────────────────────────────────────
+pubchempy>=1.0.4
+
+# ── Utilities ─────────────────────────────────────────────
+tqdm>=4.66.0
+PyYAML>=6.0.1
+requests>=2.31.0
+
+# ── Visualisation ─────────────────────────────────────────
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# ── Notebook Support ──────────────────────────────────────
+jupyter>=1.0.0
+ipykernel>=6.29.0
+
+# ── Code Quality ──────────────────────────────────────────
+flake8>=7.0.0
