@@ -1,0 +1,59 @@
+# ============================================================
+# config.yaml — All hyperparameters for ADR prediction models
+# Edit this file to change model settings without touching code
+# ============================================================
+
+data:
+  csv_path: "data/processed/faers_final.csv"
+  test_size: 0.2
+  random_state: 42
+  smiles_max_len: 120
+  morgan_nbits: 2048
+  morgan_radius: 2
+  biobert_model: "dmis-lab/biobert-base-cased-v1.1"
+  biobert_batch_size: 64
+
+random_forest:
+  n_estimators: 500
+  max_depth: 25
+  min_samples_split: 5
+  min_samples_leaf: 2
+  max_features: "sqrt"
+  n_jobs: -1
+  random_state: 42
+  save_path: "results/rf_model.pkl"
+
+cnn:
+  epochs: 30
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 1.0e-5
+  dropout: 0.35
+  embedding_dim: 128
+  conv_filters: [128, 256, 256]
+  conv_kernels: [3, 5, 7]
+  fc_dims: [512, 256]
+  n_adrs: 30
+  save_path: "results/cnn_model.pt"
+
+gnn:
+  epochs: 30
+  batch_size: 128
+  learning_rate: 0.0005
+  weight_decay: 1.0e-5
+  dropout: 0.4
+  embedding_dim: 128
+  conv_filters: [128, 256, 256]
+  conv_kernels: [3, 5, 7]
+  gcn_hidden: [128, 128, 128]
+  gcn_out: 256
+  fc_dims: [512, 256]
+  n_adrs: 30
+  save_path: "results/gnn_model.pt"
+
+training:
+  gradient_clip: 1.0
+  scheduler: "cosine"
+
+inference:
+  threshold: 0.5
